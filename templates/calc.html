@@ -1,0 +1,256 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <h1>{{ player }}のアクション</h1>
+    <p>{{ message }}</p>
+    <p><a href="/">メニューに戻る</a></p>
+    <div class="btnWrap">
+        <input readonly="readonly"value="0"/>
+        <div class="row">
+            <button class="btnGry"onclick="update( '0' ) " >AC</button>
+            <button class="btnGry"onclick="append( '**0.5' )" >√</button>
+            <button class="btnGry"onclick="update( '*0.01' ) " >%</button>
+            <button class="btnOrg"onclick="append( '/' )" >÷</button><br />
+        </div>
+        <div class="row">
+            <button class="btnBlk"onclick="append( '7' )" >7</button>
+            <button class="btnBlk"onclick="append( '8' )" >8</button>
+            <button class="btnBlk"onclick="append( '9' )" >9</button>
+            <button class="btnOrg"onclick="append( '*' )" >×</button><br />
+        </div>
+        <div class="row">
+            <button class="btnBlk"onclick="append( '4' )" >4</button>
+            <button class="btnBlk"onclick="append( '5' )" >5</button>
+            <button class="btnBlk"onclick="append( '6' )" >6</button>
+            <button class="btnOrg"onclick="append( '-' )" >-</button><br />
+        </div>
+        <div class="row">
+            <button class="btnBlk"onclick="append( '1' )" >1</button>
+            <button class="btnBlk"onclick="append( '2' )" >2</button>
+            <button class="btnBlk"onclick="append( '3' )" >3</button>
+            <button class="btnOrg"onclick="append( '+' )" >+</button><br />
+        </div>
+        <div class="row">
+            <div class="zero"> 0</div>
+            <button class="btnZero"onclick="append( '0' )" ></button>
+            <button class="btnBlk"onclick="append( '.' )" >.</button>
+            <button class="btnOrg"onclick="calc()" >=</button>
+        </div>
+    </div>
+</div>
+    <script>
+        function update( _v ) // inputタグを更新する
+        {
+            document.querySelector( 'input' ).value = _v
+        }
+
+        function append( _v ) // 数字ボタンが押されたら数字を後ろに追加する
+        {
+            //0X(Xには0～9)が表示されないようにする
+            var x = document.querySelector( 'input' ).value += _v
+
+            if(x=="00"){
+                x = "0"
+            }else if(x=="01"){
+                x = "1"
+            }else if(x=="02"){
+                x = "2"
+            }else if(x=="03"){
+                x = "3"
+            }else if(x=="04"){
+                x = "4"
+            }else if(x=="05"){
+                x = "5"
+            }else if(x=="06"){
+                x = "6"
+            }else if(x=="07"){
+                x = "7"
+            }else if(x=="08"){
+                x = "8"
+            }else if(x=="09"){
+                x = "9"
+            }
+
+            document.querySelector( 'input' ).value = x
+        }
+
+        function calc() // 「＝」ボタンが押されたら計算する
+        {
+            //ボタンが押されたらinputタグの情報をVに取ってくる
+            const v = document.querySelector( 'input' ).value
+
+            try{
+                const f = eval( v.toString() )//文字列を文字列として実行
+                update(f.toString())
+            }catch(_error){
+                //↓を使えばエラーをinputタグに表示
+                update("Error")
+            }
+        }
+    </script>
+    <style>
+    div.btnWrap
+    {
+        /*buttonを縦に揃える処理*/
+        display: grid;
+        cursor: pointer;
+        position: relative;
+        /*以下三行は電卓を中心に持ってくるための処理*/
+        /*確認用のタグ border: 1px solid black;*/
+        /*inputタグの大きさ+1.5px*/
+        width: 246.5px;
+        margin:0 auto 0 auto;
+
+        /*inputタグから数字ボタンまでの上からの距離*/
+        /*top:40px;*/
+        color:#f5f5f5;/*文字の色:白色*/
+
+    }
+
+    input
+    {
+        /*数字を入力するタグ*/
+        width:240px;
+        height:80px;
+        margin:2.5px;/*タグとの間隔*/
+        font-size:70px;
+        font-weight:10;
+        outline:0;/*押したときに枠線を表示するか否か*/
+
+        color:#f5f5f5;/*文字の色：白色*/
+        background-color:#000000;/*背景の色：黒色*/
+        /*数字を右に寄せる処理*/
+        text-align:right;
+        border:none;/*枠有りか無しか：黒色*/
+    }
+    button
+    {
+        /*すべてのボタンの情報*/
+        width:55px;
+        height:55px;
+        margin:2.5px;
+        outline:0;
+        font-weight:150;
+        box-shadow:none;
+        border:none;
+    }
+    button.btnGry
+    {
+        /*灰色ボタンの情報*/
+        border-radius:30px;/*半径を全4角に設定*/
+        font-size:1.2em;
+
+        color:#464948;/*文字の色:黒色*/
+        background-color:#b8b8beea;/*背景の色：灰色*/
+        /*ボタンを離したとき、色の変化する速度*/
+        transition:background-color 0.5s linear;
+    }
+    button.btnGry:hover
+    {
+        /*buttonにカーソルを合わせた時の処理*/
+        background-color:#ffffff;/*文字の色:白色*/
+        transition:background-color 0.1s;
+    }
+    button.btnOrg
+    {
+        /*オレンジボタンの情報*/
+        border-radius:30px;
+        font-size:2.0em;
+
+        color:#f5f5f5;/*文字の色:白色*/
+        background-color:#fc9700;/*背景の色：オレンジ*/
+        /*ボタンを離したとき、色の変化する速度*/
+        transition:background-color 0.5s linear;
+    }
+    button.btnOrg:hover
+    {
+        /*buttonにカーソルを合わせた時の処理*/
+        background-color:#fdcc82;/*背景の色：オレンジと白の中間*/
+        transition:background-color 0.1s;
+    }
+    button.btnOrg:active
+    {
+        /*buttonを押したときの処理*/
+        background-color:#f5f5f5;/*文字の色:白色*/
+        color:#fc9700;/*背景の色：オレンジ*/
+    }
+    button.btnBlk
+    {
+        /*黒色ボタンの情報*/
+        border-radius:30px;/*半径を全4角に設定*/
+        font-size:1.5em;
+
+        color:#f5f5f5;/*文字の色:白色*/
+        background-color:#323133;/*背景の色：黒色*/
+        /*ボタンを離したとき、色の変化する速度*/
+        transition:background-color 0.5s linear;
+    }
+    button.btnBlk:hover
+    {
+        /*buttonにカーソルを合わせた時の処理*/
+        background-color:#6c6a6e;/*背景の色:灰色*/
+        transition:background-color 0.1s;
+    }
+    button.btnZero
+    {
+        /*0ボタンの情報:他と大きさが違うので情報を再設定*/
+        width:115px;
+        height:55px;
+        border-radius:30px;
+        font-size:1.5em;
+
+        color:#f5f5f5;/*文字の色:白色*/
+        background-color:#323133;/*背景の色：黒色*/
+        transition:background-color 0.5s linear;
+    }
+    button.btnZero:hover
+    {
+        /*buttonにカーソルを合わせた時の処理*/
+        background-color:#6c6a6e;/*背景の色:灰色*/
+        transition:background-color 0.1s;
+    }
+    div.zero
+    {
+        /*0の文字の色の位置を個別に設定*/
+        font-size:1.5em;
+        top:335px;
+        left:24px;
+
+        /*ボタンの上に文字を設定するのでabsoluteに設定*/
+        position: absolute;
+    }
+
+    div.row
+    {
+        /*buttonを横に揃える処理*/
+        display:flex;
+        /*タグとの間隔*/
+        /*
+            メモ:ここにmraginを置かないと左端にくっついてしまう。
+        */
+        margin-left:2.5px;
+    }
+    /*ChromeとOperaのみだけに適用されるCSSハック*/
+    /*_::content, _:future, body:not(*:root) {}*/
+    /*Firefoxだけに適用されるCSSハック*/
+    /*@-moz-document url-prefix() {}*/
+
+    /*以下メディアクエリ試験版*/
+    /*IE11だけに適用されるCSSハック*/
+    @media all and (-ms-high-contrast:none){
+        /*IE11だとcanvasが適用されないので以下に背景を設定*/
+        *::-ms-backdrop,div{
+            background-color: black;
+        }
+        *::-ms-backdrop,div.zero{
+            background-color:#323133
+        }
+    }
+    /*Safariだけに適用されるCSSハック*/
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        ::i-block-chrome{
+            background-color: LightSteelBlue;
+        }
+    }
+    </style>
+{% endblock %}
