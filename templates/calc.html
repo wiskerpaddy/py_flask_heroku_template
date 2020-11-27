@@ -5,6 +5,7 @@
     <p>{{ message }}</p>
     <p><a href="/">メニューに戻る</a></p>
     <div class="btnWrap">
+        <input class="header"readonly="readonly"/>
         <input readonly="readonly"value="0"/>
         <div class="row">
             <button class="btnGry"onclick="update( '0' ) " >AC</button>
@@ -123,6 +124,13 @@
         text-align:right;
         border:none;/*枠有りか無しか：黒色*/
     }
+    input.header
+    {
+        /*電卓の上部に空白を作成するために使用。将来的に履歴表示機能として使用するかも。*/
+        width:240px;
+        height:40px;
+        background-color:#000000;/*背景の色：黒色*/
+    }
     button
     {
         /*すべてのボタンの情報*/
@@ -235,7 +243,6 @@
     /*Firefoxだけに適用されるCSSハック*/
     /*@-moz-document url-prefix() {}*/
 
-    /*以下メディアクエリ試験版*/
     /*IE11だけに適用されるCSSハック*/
     @media all and (-ms-high-contrast:none){
         /*IE11だとcanvasが適用されないので以下に背景を設定*/
