@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+<!--div class="container"-->
+<p><a href="/">メニューに戻る</a></p>
+    <h1>1行掲示板</h1>
+    <p>{{ message }}</p>
+
+    <form action="/result" method="post">
+        <label for="article">投稿</label>
+        <input type="text" name="article">
+        <p></p>
+        <label for="name">名前</label>
+        <input type="text" name="name">
+        <button type="submit">送信する</button>
+    </form>
+
+    <h2>投稿一覧</h2>
+
+    <table>
+    <tr><th>投稿</th><th>名前</th></tr>
+        {% for line in lines: %}
+            {% set column = line.rstrip().split(",") %}
+            <tr>
+                {% for item in column: %}
+                    <td>{{ item }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+<!--/div-->
+{% endblock %}
