@@ -1,0 +1,37 @@
+SQLserver,python接続方法
+'''参考コード:python
+
+import pprint
+import pyodbc
+
+def login():
+	driver='{SQL Server}'
+	server = 'SQLServerが稼働しているサーバー名'
+	database = 'データベース名'
+	trusted_connection='yes'    #Windows認証YES
+	#uid='[DB User]'            #SQLserver認証
+	#pwd='[DB Password]'	    #SQLserver認証
+
+	#Windows認証の場合 
+	connect= pyodbc.connect('DRIVER='+driver+';SERVER='+server+';DATABASE='+database+';PORT=1433;Trusted_Connection='+trusted_connection+';')
+
+	#SQLserver認証の場合
+	#connect=pyodbc.connect('DRIVER='+driver+';SERVER='+server+';DATABASE='+database+';UID='+uid+';PWD='+pwd+';')
+	cursor = connect.cursor()
+	cursor.execute( "SELECT * FROM test_table" )
+	rows = cursor.fetchall()
+	pprint.pprint( rows )
+
+	cursor.close()
+	connect.close()
+
+if __name__ == '__main__':login()
+
+'''
+
+'''
+参考サイト
+[pyodbcでWindows認証でSQLServerにリモート接続する方法]( https://lightgauge.net/language/python/9117/ )
+[Python環境にpyodbcをインストールしてSQLServerに接続する手順]( https://rainbow-engine.com/python-pyodbc-install/ )
+[Configure the Windows Firewall to Allow SQL Server Access]( https://docs.microsoft.com/ja-jp/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access?view=sql-server-ver15 )
+'''
