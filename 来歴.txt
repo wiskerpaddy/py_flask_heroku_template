@@ -1,0 +1,4 @@
+　　　app_R00:pythonとSQL Serverを接続。カラムを取り出す。
+python_db_R00:flaskからSQL Serverを操作。SQL命令を直書き。SELECTのみ。
+python_db_R01:flaskからSQL Serverを操作。SQL命令追加。SELECT、DELETE、INSERT文追加。
+python_db_R02:
