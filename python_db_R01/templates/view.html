@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Hello SQL</h1>
+    <p>{{ message }}</p>
+
+    {% for row in rows %}
+        <p>{{ row }}</p>
+    {% endfor %}
+
+{% endblock %}
