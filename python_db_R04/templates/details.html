@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Hello SQL</h1>
+    <p>{{ message }}</p>
+
+    <ul>
+        <li>id    ：{{ row.id }}</li>
+        <li>日付  ：{{ row.date }}</li>
+        <li>名前  ：{{ row.name }}</li>
+        <li>収入  ：{{ row.incomes }}</li>
+        <li>支出  ：{{ row.expenses }}</li>
+        <li>交通費：{{ row.travel_costs }}</li>
+    </ul>
+
+    <p><a href = "/">戻る</a></p>
+
+{% endblock %}

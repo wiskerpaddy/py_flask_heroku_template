@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Hello SQL</h1>
+    <p>{{ message }}</p>
+
+    <table>
+        <tr>
+            <td>id</td>
+            <td>日付</td>
+            <td>名前</td>
+            <td>収入</td>
+            <td>支出</td>
+            <td>交通費</td>
+        </tr>
+    </table>
+
+    <table>
+        {% for row in rows %}
+            <tr>
+                <td>{{ row.id }}</td>
+                <td>{{ row.date }}</td>
+                <td>{{ row.name }}</td>
+                <td>{{ row.incomes }}</td>
+                <td>{{ row.expenses }}</td>
+                <td>{{ row.travel_costs }}</td>
+                <td><a href='/show/{{ row.id }}'>表示</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
