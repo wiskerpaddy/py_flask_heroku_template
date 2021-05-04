@@ -5,3 +5,4 @@
 |python_db_R01|Add a query(SELECT,INSERT,DELETE).|
 |python_db_R02|Add a query(JOIN).Add a COALESCE not to use NULL.|
 |python_db_R03|Revice a query(JOIN).|
+|python_db_R04|Make a "details.html". Add a function(href...)|
