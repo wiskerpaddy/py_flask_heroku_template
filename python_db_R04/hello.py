@@ -27,8 +27,8 @@ app = Flask(__name__)
 
 def getConnection():
     driver='{SQL Server}'
-    server = 'YUUKI-PC\SQLEXPRESS'
-    database = 'test'
+    server = '任意'
+    database = '任意'
     trusted_connection='yes'
     connection = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';DATABASE='+database+';PORT=1433;Trusted_Connection='+trusted_connection+';')
     return connection
