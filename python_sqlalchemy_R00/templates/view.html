@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Hello SQL</h1>
+    <p>{{ message }}</p>
+
+    <table>
+    {% for seisan in seisandb %}
+        <tr>
+            <td>{{ seisan.id }}</td>
+            <td>{{ seisan.name }}</td>
+            <td>{{ seisan.travel_costs }}</td>
+            <td>{{ seisan.date }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}
