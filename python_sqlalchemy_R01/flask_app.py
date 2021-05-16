@@ -9,8 +9,8 @@ app = Flask(__name__)
 
 #SQL server DB information
 driver='{SQL Server}'
-server = 'YUUKI-PC\SQLEXPRESS'
-database = 'test'
+server = '任意'
+database = '任意'
 trusted_connection='yes' #windows authentication
 
 # an connection_string, which the Session will use for connection
