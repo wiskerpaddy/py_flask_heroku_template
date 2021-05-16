@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>書き込みました</h1>
+    <ul>
+        <li>名前  ：{{ name }}</li>
+        <li>交通費：{{ travel_costs }}</li>
+        <li>日付  ：{{ date }}</li>
+    </ul>
+
+    <p><a href="/">メニューに戻る</a></p>
+{% endblock %}
+
