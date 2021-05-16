@@ -9,3 +9,5 @@
 |python_db_R03|Revice a query(JOIN).|
 |python_db_R04|Make a "details.html". Add a function(href...)|
 |python_sqlalchemy_R00|Use sqlalchemy and connect Python and SQL Server.Fetch column.|
+|python_sqlalchemy_R01|Add a function to fetch values from input tag(html file), <br> Insert it to db and show.|
+
