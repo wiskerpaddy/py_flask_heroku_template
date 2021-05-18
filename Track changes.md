@@ -11,4 +11,5 @@
 |python_sqlalchemy_R00|Use sqlalchemy and connect Python and SQL Server.Fetch column.|
 |python_sqlalchemy_R01|Add a function to fetch values from input tag(html file), <br> Insert it to db and show.|
 |python_sqlalchemy_R02|Add a function to delete column by using URL/delete/<int:id>.<br>Add a "delete_result.html".|
+|python_sqlalchemy_R03|Modify a html file to create table|
 
