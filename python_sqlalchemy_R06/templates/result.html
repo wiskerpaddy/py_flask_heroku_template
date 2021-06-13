@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block content %}
+    <p>{{ message }}</p>
+    <ul>
+        <li>名前  ：{{ seisandb.name }}</li>
+        <li>交通費：{{ seisandb.travel_costs }}</li>
+        <li>日付  ：{{ seisandb.date }}</li>
+        <li>プロジェクトコード  ：{{ seisandb.pjcode }}</li>
+    </ul>
+
+    <p><a href="/">メニューに戻る</a></p>
+{% endblock %}
+
