@@ -1,4 +1,3 @@
-from warnings import catch_warnings
 from flask import Flask, render_template,request
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.engine import URL
