@@ -179,7 +179,7 @@ def result():
     db.session.add(seisandb)
     db.session.commit()
 
-    return render_template('result.html', seisandb = seisandb)
+    return render_template('result.html', message = message, seisandb = seisandb)
 
 @app.route('/show/<int:id>')
 def show_date(id):
