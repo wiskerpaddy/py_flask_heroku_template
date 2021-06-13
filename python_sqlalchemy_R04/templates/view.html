@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block content %}
+    <p>{{ message }}</p>
+    <form action="/result" method="post">
+      <div class="form">
+          <div class="name">
+            <input type="text" placeholder="NAME" name="name"/>
+          </div>
+          <div class="travelcosts">
+            <input type="text" placeholder="TRAVELCOSTS" name="travelcosts"/>
+          </div>
+          <div class="date">
+            <input type="tel" placeholder="YYYY-MM-DD" name="date"/>
+          </div>
+          <div class="login">
+            <input type="submit" value="SUBMIT"/>
+          </div>
+        </div>
+    </form>
+    <table border="1">
+      <tr>
+        <td>id</td>
+        <td>名前</td>
+        <td>交通費</td>
+        <td>日付</td>
+      </tr>
+    {% for seisan in seisandb %}
+        <tr>
+            <td>{{ seisan.id }}</td>
+            <td>{{ seisan.name }}</td>
+            <td>{{ seisan.travel_costs }}</td>
+            <td>{{ seisan.date }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

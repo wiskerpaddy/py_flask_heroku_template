@@ -1,0 +1,10 @@
+.body {
+  padding: 10px;
+}
+p.containerHeader{
+  border-color: rgb(170, 48, 252);
+  text-align: center;
+}
+div.container {
+  text-align: center;
+}
