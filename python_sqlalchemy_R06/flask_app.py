@@ -183,8 +183,8 @@ def result():
 
 @app.route('/show/<int:id>')
 def show_date(id):
-    message = "Hello id" + str(id)
-    seisandb = SeisanDB.query.all()
+    message = "Hello id " + str(id)
+    seisandb = SeisanDB.query.get(id)
     return render_template('result.html', message = message, seisandb = seisandb)
 
 @app.route('/delete/<int:id>')
