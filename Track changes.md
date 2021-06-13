@@ -14,4 +14,4 @@
 |python_sqlalchemy_R03|Modify a html file to create table.|
 |python_sqlalchemy_R04|Revice 'flask_app' to add exception function. |
 |python_sqlalchemy_R05|Add column 'pjcode'|
-
+|python_sqlalchemy_R05|Revice column 'id'|
