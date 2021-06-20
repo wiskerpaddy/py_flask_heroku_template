@@ -8,8 +8,8 @@ app = Flask(__name__)
 
 #SQL server DB information
 driver='{SQL Server}'
-server = 'YUUKI-PC\SQLEXPRESS'
-database = 'test'
+server = '任意'
+database = '任意'
 trusted_connection='yes' #windows authentication
 
 #replace other value
@@ -150,5 +150,5 @@ def delete(id):
     return render_template('delete_result.html', message = message)
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    #app.run()
+    #app.run(debug=True)
+    app.run()
