@@ -16,4 +16,5 @@
 |python_sqlalchemy_R05|Add column 'pjcode'|
 |python_sqlalchemy_R06|Revice column 'id'|
 |python_sqlalchemy_R07|Revice some functions|
+|python_sqlalchemy_R08|Revice some function to change the way error handling.|
 |python_sqlalchemy_sqlite3_R00|Revice 'flask_app.py' to use 'sqlite3' instead of 'MS-SQL'.|
