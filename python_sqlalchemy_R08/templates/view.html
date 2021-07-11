@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    {%- for category, message in get_flashed_messages(with_categories = true) %}
+    <div class = "alert alert-danger">
+      {{ message }}
+    </div>
+    {%- endfor %}
+
+    <p>{{ message }}</p>
+    <form action="/result" method="post">
+      <div class="form">
+          <label for = "name">Name</label><br>
+          <input type="text" placeholder="NAME" name="name"/><br>
+          <label for = "name">travelcosts</label><br>
+          <input type="text" placeholder="TRAVELCOSTS" name="travelcosts"/><br>
+          <label for = "name">date</label><br>
+          <input type="tel" placeholder="YYYY-MM-DD" name="date"/><br>
+          <label for = "name">pjcode</label><br>
+          <input type="text" placeholder="PROJECTCODE" name="pjcode"/><br>
+          <input type="submit" value="SUBMIT"/>
+        </div>
+    </form>
+    <p><a href="/">メニューに戻る</a></p>
+{% endblock %}

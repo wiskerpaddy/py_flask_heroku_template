@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>交通費精算メニュー</h1>
+<p><a href='/result'>レコード追加</a></p>
+<table border="1">
+    <tr>
+      <td>id</td>
+      <td>名前</td>
+      <td>交通費</td>
+      <td>日付</td>
+      <td>プロジェクトコード</td>
+    </tr>
+  {% for seisan in seisandb %}
+      <tr>
+          <td><a href='/show/{{ seisan.id }}'>{{ seisan.id }}</a></td>
+          <td>{{ seisan.name }}</td>
+          <td>{{ seisan.travel_costs }}</td>
+          <td>{{ seisan.date }}</td>
+          <td>{{ seisan.pjcode }}</td>
+      </tr>
+  {% endfor %}
+  </table>
+{% endblock %}
